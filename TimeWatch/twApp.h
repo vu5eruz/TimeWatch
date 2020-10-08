@@ -19,6 +19,8 @@ namespace timewatch
 
         ~App();
 
+        void ParseCommandLine(const std::vector<LPWSTR>& Args);
+
         int Run();
 
     private:
