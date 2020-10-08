@@ -1,0 +1,8 @@
+// Time Watch
+// timewatch.rc
+// Resource file
+
+#include <windows.h>
+#include "resource.h"
+
+TWRID_ICON_APPLICATION ICON "timewatch.ico"
