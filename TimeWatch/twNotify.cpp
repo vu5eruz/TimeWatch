@@ -44,6 +44,15 @@ namespace timewatch
         m_Data.dwInfoFlags = NIIF_LARGE_ICON | NIIF_USER;
 
         ::Shell_NotifyIcon(NIM_MODIFY, &m_Data);
+
+        m_Data.uFlags &= ~NIF_INFO;
+    }
+
+    void Notify::UpdateTip(LPCTSTR Tip)
+    {
+        _tcscpy_s(m_Data.szTip, Tip);
+        
+        ::Shell_NotifyIcon(NIM_MODIFY, &m_Data);
     }
 
 }

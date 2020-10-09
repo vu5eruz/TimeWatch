@@ -357,6 +357,15 @@ namespace timewatch
 
             m_NotifyPtr->ShowBallonTip(m_DisplayDesc.data(), Desc.c_str());
         }
+
+        // Update taskbar icon tip
+
+        std::basic_string<TCHAR> Tip{};
+        Tip += m_DisplayDesc;
+        Tip += _T(" @ ");
+        Tip += m_DisplayText;
+
+        m_NotifyPtr->UpdateTip(Tip.c_str());
     }
 
     LRESULT Window::WindowProc(UINT Message, WPARAM Wparam, LPARAM Lparam)

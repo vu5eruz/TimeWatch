@@ -17,6 +17,8 @@ namespace timewatch
 
         void ShowBallonTip(LPCTSTR Title, LPCTSTR Description);
 
+        void UpdateTip(LPCTSTR Tip);
+
     private:
 
         HINSTANCE m_Instance{};
