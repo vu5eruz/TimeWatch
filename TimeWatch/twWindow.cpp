@@ -395,9 +395,9 @@ namespace timewatch
             }
 
             case WM_TIMER:
-                if (m_CurTime >= (m_StagesRuntime - 1.0 / c_TimerGranularity))
+                if (auto StageTime{ m_CurTime - m_BiasTime }; StageTime >= (m_StagesRuntime - 1.0 / c_TimerGranularity))
                 {
-                    m_BiasTime += m_CurTime;
+                    m_BiasTime += StageTime;
                 }
                 
                 if (Wparam == TWTID_TIMER)
