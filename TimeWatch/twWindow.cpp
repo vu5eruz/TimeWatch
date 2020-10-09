@@ -423,12 +423,15 @@ namespace timewatch
                 }
 
             case TWM_NOTIFY:
-                if ((LOWORD(Lparam) == NIN_SELECT) || (LOWORD(Lparam) == NIN_KEYSELECT))
+                switch (LOWORD(Lparam))
                 {
-                    ::ShowWindow(m_Window, SW_SHOWNORMAL);
-                    ::SetFocus(m_Window);
+                    case NIN_SELECT:
+                    case NIN_KEYSELECT:
+                    case NIN_BALLOONUSERCLICK:
+                        ::ShowWindow(m_Window, SW_SHOWNORMAL);
+                        ::SetFocus(m_Window);
+                        break;
                 }
-
                 return 0;
             
             default:
